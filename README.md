@@ -1,15 +1,26 @@
-[]: # Language: markdown
-[]: # Path: README.md
+# Aujus Restaurant Website
 
-# Au Jus
+Restaurant website for Aujus featuring menus, gallery, and contact information. Built with HTML, CSS, JavaScript, and PHP for the contact form functionality.
 
-Au Jus Resturaunt website
+## Features
+
+- Responsive design for mobile and desktop viewing
+- Interactive menu displays
+- Photo gallery
+- Contact form with PHPMailer integration
+- Catering information
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap
+- PHP
+- Composer (for PHP dependencies)
+- PHPMailer
 
 
-captcha needs fixed when we switch to aujus-cle.com
+## License
 
-Jakob said add we could gradient to the background
-
-
-Change php file so email is directed correctly
-
+All rights reserved. This website is proprietary to Aujus Restaurant.
