@@ -6,7 +6,6 @@ This repository contains the source code for the official website of Aujus, a re
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
 - [License](#license)
 
 ## Features
