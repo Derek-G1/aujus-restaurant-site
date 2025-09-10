@@ -16,9 +16,7 @@ Restaurant website for Aujus featuring menus, gallery, and contact information. 
 - CSS3
 - JavaScript
 - Bootstrap
-- PHP
-- Composer (for PHP dependencies)
-- PHPMailer
+
 
 
 ## License
