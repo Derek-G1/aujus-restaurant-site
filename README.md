@@ -23,4 +23,4 @@ Restaurant website for Aujus featuring menus, gallery, and contact information. 
 
 ## License
 
-All rights reserved. This website is proprietary to Aujus Restaurant.
+All rights reserved. This website is proprietary to AU JUS LLC.
