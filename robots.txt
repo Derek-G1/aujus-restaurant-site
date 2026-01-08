@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /.git/
+Disallow: /php/
+Disallow: /vendor/
+Disallow: /composer.*
+Disallow: /STMTLOG*
 
 Sitemap: https://www.aujus-cle.com/sitemap.xml
