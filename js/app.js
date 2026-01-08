@@ -1,36 +1,35 @@
 // Hamburger menu animation on click and toggle nav items
 document.getElementById("hamburgerMenu").addEventListener("click", () => {
-  navItems = document.getElementsByClassName("navItem");
+  const navItems = document.getElementsByClassName("navItem");
   document.getElementById("responsiveLinks").classList.toggle("showOnMobile");
-  hamburgerMenu.classList.toggle("hamActive");
+  document.getElementById("hamburgerMenu").classList.toggle("hamActive");
   document.getElementById("logoHolder").classList.toggle("hamOpenLogo");
-
 });
 
-if (document.getElementById("contactSubmitBtn") != null) {
-  document
-    .getElementById("contactSubmitBtn")
-    .addEventListener("click", validateForm);
+const contactSubmitBtn = document.getElementById("contactSubmitBtn");
+if (contactSubmitBtn != null) {
+  contactSubmitBtn.addEventListener("click", validateForm);
 }
-if (document.getElementById("contactForm") != null) {
+
+const contactForm = document.getElementById("contactForm");
+if (contactForm != null) {
   //prevent default action of contact form
-  document.getElementById("contactForm").addEventListener("submit", (e) => {
+  contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
   });
 }
 
 async function sendForm() {
-  let xhr = new XMLHttpRequest();
-
+  const xhr = new XMLHttpRequest();
 
   xhr.open("POST", "../php/sendTheMailTo.php", true);
-  data = new FormData(document.getElementById("contactForm"));
+  const data = new FormData(document.getElementById("contactForm"));
 
   xhr.send(data);
 
   console.log(data);
-  
-  xhr.onload = function () {
+
+  xhr.onload = function() {
     if (xhr.status != 200) {
       document.getElementById("contactSubmitBtn").innerHTML = "Error";
     } else {
@@ -42,10 +41,16 @@ async function sendForm() {
 }
 
 function validateForm() {
-  isValid = true;
-  phoneNumber = document.getElementById("phone");
-  message = document.getElementById("message");
-  phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+  let isValid = true;
+  const phoneNumber = document.getElementById("phone");
+  const message = document.getElementById("message");
+  const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+
+  // Ensure elements exist before accessing properties
+  if (!phoneNumber || !message) {
+    console.error("Form elements not found");
+    return;
+  }
 
   if (phoneNumber.value.trim() == "") {
     console.log("valid empty phone number");
@@ -54,8 +59,11 @@ function validateForm() {
       console.log("valid phone number");
     } else {
       phoneNumber.style.border = "1px solid red";
-      document.getElementById("phoneLabel").style.color = "red";
-      document.getElementById("phoneLabel").innerHTML = "Invalid phone number:";
+      const phoneLabel = document.getElementById("phoneLabel");
+      if (phoneLabel) {
+        phoneLabel.style.color = "red";
+        phoneLabel.innerHTML = "Invalid phone number:";
+      }
       isValid = false;
     }
   }
@@ -64,13 +72,13 @@ function validateForm() {
     console.log("valid message");
   } else {
     message.style.border = "1px solid red";
-    document.getElementById("messageLabel").style.color = "red";
-    document.getElementById("messageLabel").innerHTML =
-      "message cannot be empty:";
+    const messageLabel = document.getElementById("messageLabel");
+    if (messageLabel) {
+      messageLabel.style.color = "red";
+      messageLabel.innerHTML = "message cannot be empty:";
+    }
     isValid = false;
   }
-
-  
 
   if (isValid) {
     sendForm();
