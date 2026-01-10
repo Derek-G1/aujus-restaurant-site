@@ -404,6 +404,37 @@ nav ul li a:hover {
   font-size: 2rem;
 }
 
+/* The Base Style (Moved from your HTML) */
+.promo-banner {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 1rem;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 auto 2rem auto; /* Centers it and keeps bottom margin */
+  width: 95%; /* Matches your other blocks */
+  border: 1px solid black;
+  
+  /* REQUIRED for the animation to work smoothly */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* Shows the "hand" icon so people know it's interactive */
+}
+
+/* The Hover Effect */
+.promo-banner:hover {
+  /* This scales the box up by 5% */
+  transform: scale(1.05);
+  
+  /* This adds a drop shadow to make it look like it's lifting off the page */
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}
+
+/* Optional: Clean up the H3 inside it */
+.promo-banner h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
 .infoBlocks {
   display: flex;
   justify-content: space-around;
