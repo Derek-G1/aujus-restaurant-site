@@ -690,6 +690,28 @@ nav ul li a:hover {
 
 }
 
+/* ----------------------------Videos Page (TikTok embed)--------------------*/
+
+.video-page-intro {
+  width: 100%;
+  text-align: center;
+  margin: 0 0 1.25rem 0;
+  line-height: 1.4;
+}
+
+.tiktok-embed-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 1rem 0;
+}
+
+/* TikTok injects inline styles, but this keeps the block centered nicely */
+.tiktok-embed {
+  margin: 0 auto !important;
+}
+
 
 
 /* ---------------------------Catering Menu ------------------------------- */
