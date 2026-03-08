@@ -2666,6 +2666,37 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     text-wrap: balance;
   }
 
+  .menuGroup--sausage {
+    margin-top: 1.1rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .menuGroup--sausage::after {
+    content: none;
+  }
+
+  .menuGroup--sausage .menuGroupTitle {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: clamp(1.08rem, 5vw, 1.32rem);
+    line-height: 1.12;
+    letter-spacing: 0.03em;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+    text-wrap: balance;
+  }
+
+  .menuGroup--sausage .menuItemTitle h3,
+  .menuGroup--sausage .menuItem p {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
   .menuItemTitle {
     grid-template-columns: 1fr;
     row-gap: 0.35rem;
