@@ -36,9 +36,9 @@
   --social-instagram-gradient:
     radial-gradient(circle at 24% 16%, rgba(255, 255, 255, 0.18), transparent 34%),
     linear-gradient(145deg, #f9ce34 0%, #ee2a7b 42%, #6228d7 100%);
-  --social-twitter-gradient:
-    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.18), transparent 34%),
-    linear-gradient(140deg, #49b8f8 0%, #2293ea 52%, #1472c3 100%);
+  --social-x-gradient:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.22), transparent 34%),
+    linear-gradient(145deg, #474747 0%, #232323 38%, #101010 70%, #030303 100%);
   --social-tiktok-gradient:
     radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.1), transparent 30%),
     linear-gradient(140deg, #181818 0%, #121212 52%, #080808 100%);
@@ -47,6 +47,9 @@
   --gold-ring-soft: rgba(216, 169, 74, 0.38);
   --gold-ring: rgba(242, 208, 123, 0.72);
   --gold-ring-strong: rgba(255, 224, 149, 0.9);
+  --gold-shimmer-line: rgba(255, 232, 173, 0.62);
+  --gold-shimmer-glow: rgba(255, 214, 118, 0.18);
+  --gold-shimmer-glow-strong: rgba(255, 231, 171, 0.3);
   --shadow-sm: 0 16px 34px rgba(23, 7, 11, 0.18);
   --shadow-md: 0 26px 60px rgba(23, 7, 11, 0.28);
   --shadow-lg: 0 36px 88px rgba(13, 3, 6, 0.36);
@@ -114,6 +117,79 @@ body::after {
     radial-gradient(circle at 76% 18%, rgba(216, 169, 74, 0.14), transparent 18%),
     radial-gradient(circle at 14% 78%, rgba(255, 255, 255, 0.04), transparent 16%);
   z-index: -1;
+}
+
+@keyframes gold-border-shimmer {
+  0%,
+  100% {
+    opacity: 0.52;
+    box-shadow:
+      0 0 10px var(--gold-shimmer-glow),
+      0 0 20px rgba(223, 184, 92, 0.12);
+  }
+
+  50% {
+    opacity: 0.88;
+    box-shadow:
+      0 0 16px var(--gold-shimmer-glow-strong),
+      0 0 30px rgba(223, 184, 92, 0.18);
+  }
+}
+
+@keyframes gold-frame-shimmer {
+  0%,
+  100% {
+    box-shadow:
+      0 14px 28px rgba(67, 13, 25, 0.08),
+      0 0 12px var(--gold-shimmer-glow);
+  }
+
+  50% {
+    box-shadow:
+      0 14px 28px rgba(67, 13, 25, 0.08),
+      0 0 20px var(--gold-shimmer-glow-strong),
+      0 0 34px rgba(223, 184, 92, 0.16);
+  }
+}
+
+.featureCard,
+.i-block,
+.section-kicker,
+.promo-banner,
+.location-card,
+.address-card,
+.hoursList li,
+.menu,
+.menuGroup,
+.longMenuGroup,
+.gallery-container,
+.cateringMenuItem,
+.formContainer {
+  position: relative;
+  isolation: isolate;
+}
+
+.featureCard::after,
+.i-block::after,
+.section-kicker::after,
+.promo-banner::after,
+.location-card::after,
+.address-card::after,
+.hoursList li::after,
+.menu::after,
+.menuGroup::after,
+.longMenuGroup::after,
+.gallery-container::after,
+.cateringMenuItem::after,
+.formContainer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--gold-shimmer-line);
+  border-radius: inherit;
+  opacity: 0.68;
+  pointer-events: none;
+  animation: gold-border-shimmer 8s ease-in-out infinite;
 }
 
 img,
@@ -312,6 +388,15 @@ h3 {
   }
 }
 
+@keyframes orderNowSinglePass {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .nav-order-label {
     background-image: linear-gradient(
@@ -338,16 +423,17 @@ h3 {
   .order-now-label {
     background-image: linear-gradient(
       90deg,
-      #b67d2a 0%,
-      #d8a94a 18%,
-      #f6ead6 34%,
-      #7d1d2f 50%,
-      #f6ead6 64%,
-      #d8a94a 80%,
-      #b67d2a 100%
+      #5f1623 0%,
+      #7d1d2f 16%,
+      #b67d2a 34%,
+      #f6ead6 50%,
+      #d8a94a 66%,
+      #8c4c22 82%,
+      #5f1623 100%
     );
-    background-size: 260% 100%;
-    animation: orderNowTextPass 6.1s linear infinite;
+    background-size: 400% 100%;
+    background-repeat: no-repeat;
+    animation: orderNowSinglePass 5.9s linear infinite;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -378,6 +464,14 @@ h3 {
     0 20px 38px rgba(12, 4, 7, 0.28);
 }
 
+.hero-links .btn-secondary {
+  -webkit-text-stroke: 0.38px rgba(216, 169, 74, 0.5);
+  paint-order: stroke fill;
+  text-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.24),
+    0 0 9px rgba(216, 169, 74, 0.08);
+}
+
 .btn-accent {
   color: var(--color-primary-deep);
   border-color: rgba(179, 127, 31, 0.24);
@@ -398,21 +492,44 @@ h3 {
 .btn-phone-cu-page,
 .btn-email-cu-page {
   color: var(--color-primary-deep);
-  border-color: rgba(179, 127, 31, 0.5);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.72),
-    0 14px 28px rgba(23, 7, 11, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 20px 40px rgba(216, 169, 74, 0.36),
     0 0 0 1px rgba(216, 169, 74, 0.1);
 }
 
 .btn-phone::before,
-.btn-phone-cu-page::before,
+.btn-phone-cu-page::before {
+  background: var(--button-gold-gradient);
+}
+
+.btn-phone,
+.btn-phone-cu-page {
+  border-color: rgba(125, 29, 47, 0.56);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 20px 40px rgba(216, 169, 74, 0.36),
+    0 0 0 1px rgba(125, 29, 47, 0.14);
+}
+
 .btn-email-cu-page::before {
   background: var(--button-cream-gradient);
 }
 
+.btn-email-cu-page {
+  border-color: rgba(179, 127, 31, 0.5);
+}
+
 .btn-phone:is(:hover, :focus-visible),
-.btn-phone-cu-page:is(:hover, :focus-visible),
+.btn-phone-cu-page:is(:hover, :focus-visible) {
+  color: var(--color-secondary);
+  border-color: var(--border-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 26px 46px rgba(67, 13, 25, 0.28),
+    0 0 0 1px rgba(223, 184, 92, 0.2);
+}
+
 .btn-email-cu-page:is(:hover, :focus-visible) {
   color: var(--color-secondary);
   border-color: rgba(246, 234, 214, 0.22);
@@ -551,6 +668,14 @@ nav ul li a {
     color 180ms ease,
     transform 180ms ease,
     text-shadow 180ms ease;
+}
+
+nav ul li a:not(.nav-order-link) {
+  -webkit-text-stroke: 0.34px rgba(216, 169, 74, 0.48);
+  paint-order: stroke fill;
+  text-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.22),
+    0 0 8px rgba(216, 169, 74, 0.08);
 }
 
 nav ul li a:not(.nav-order-link):is(:hover, :focus-visible) {
@@ -739,6 +864,11 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  -webkit-text-stroke: 0.38px rgba(216, 169, 74, 0.52);
+  paint-order: stroke fill;
+  text-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.24),
+    0 0 9px rgba(216, 169, 74, 0.08);
 }
 
 .hero-copy {
@@ -792,12 +922,23 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  -webkit-text-stroke: 0.34px rgba(216, 169, 74, 0.48);
+  paint-order: stroke fill;
+  text-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.24),
+    0 0 9px rgba(216, 169, 74, 0.08);
 }
 
 .hero-badge strong {
   display: block;
+  color: rgba(246, 234, 214, 0.94);
   font-size: 1.08rem;
   line-height: 1.4;
+  -webkit-text-stroke: 0.42px rgba(216, 169, 74, 0.54);
+  paint-order: stroke fill;
+  text-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.24),
+    0 0 9px rgba(216, 169, 74, 0.08);
 }
 
 .featureStrip {
@@ -939,6 +1080,9 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
 .spotlight-card {
   overflow: hidden;
+  border-left-width: 3px;
+  border-right-width: 3px;
+  border-bottom-width: 3px;
 }
 
 .spotlight-card::before {
@@ -948,6 +1092,14 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   height: 6px;
   background: linear-gradient(90deg, transparent 0%, rgba(216, 169, 74, 0.92) 18%, rgba(216, 169, 74, 0.92) 82%, transparent 100%);
   opacity: 0.85;
+}
+
+.spotlight-card::after {
+  inset: 6px 0 0;
+  border-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  opacity: 0.78;
 }
 
 .i-block h2,
@@ -999,6 +1151,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 .section-lede {
   padding-left: 1rem;
   border-left: 5px solid var(--gold-ring-strong);
+  box-shadow: inset 10px 0 18px -16px var(--gold-shimmer-glow-strong);
   color: var(--color-primary-deep);
   font-size: clamp(1.08rem, 1.8vw, 1.28rem) !important;
   line-height: 1.75;
@@ -1044,7 +1197,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   font-family: "Bebas Neue", sans-serif;
   font-size: clamp(2rem, 4vw, 2.9rem);
   letter-spacing: 0.04em;
-  color: var(--color-primary-deep);
+  color: var(--color-primary);
 }
 
 .promo-banner p {
@@ -1058,6 +1211,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 .promo-cta {
   justify-self: end;
   white-space: nowrap;
+  color: var(--color-primary);
 }
 
 .location p {
@@ -1077,6 +1231,8 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   border-radius: var(--radius-sm);
   background: linear-gradient(135deg, rgba(248, 238, 221, 0.98), rgba(255, 255, 255, 0.92));
   box-shadow:
+    inset 12px 0 18px -16px var(--gold-shimmer-glow-strong),
+    inset -12px 0 18px -16px var(--gold-shimmer-glow-strong),
     0 0 0 1px rgba(255, 224, 149, 0.16),
     0 12px 24px rgba(23, 7, 11, 0.08);
   color: var(--color-primary-deep);
@@ -1145,7 +1301,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 }
 
 .address-card span {
-  color: var(--color-ink-soft);
+  color: var(--color-primary);
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -1181,7 +1337,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
     0 10px 22px rgba(67, 13, 25, 0.08);
-  color: var(--color-primary-deep);
+  color: var(--color-primary);
   text-decoration: none;
   transition:
     transform 180ms ease,
@@ -1197,7 +1353,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 }
 
 .map-app-link span {
-  color: var(--color-ink-soft);
+  color: var(--color-primary);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -1205,6 +1361,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 }
 
 .map-app-link strong {
+  color: var(--color-primary);
   font-size: 1rem;
   line-height: 1.35;
 }
@@ -1236,7 +1393,10 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   min-height: 19rem;
   border: 2px solid var(--border-strong);
   border-radius: var(--radius-md);
-  box-shadow: 0 14px 28px rgba(67, 13, 25, 0.08);
+  box-shadow:
+    0 14px 28px rgba(67, 13, 25, 0.08),
+    0 0 12px var(--gold-shimmer-glow);
+  animation: gold-frame-shimmer 8s ease-in-out infinite;
 }
 
 .daysAndHours {
@@ -1299,13 +1459,13 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 }
 
 .hoursList strong {
-  color: var(--color-ink);
+  color: var(--color-primary);
   font-size: 1rem;
   text-align: right;
 }
 
 .hoursList .is-closed strong {
-  color: var(--color-ink-soft);
+  color: var(--color-primary);
 }
 
 @media (hover: hover) {
@@ -1425,9 +1585,14 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   background: var(--social-instagram-gradient);
 }
 
-.socialsContainer a[aria-label="Twitter"]:is(:hover, :focus-visible),
-.socialsContainerContact a[aria-label="Twitter"]:is(:hover, :focus-visible) {
-  background: var(--social-twitter-gradient);
+.socialsContainer a[aria-label="X"]:is(:hover, :focus-visible),
+.socialsContainerContact a[aria-label="X"]:is(:hover, :focus-visible) {
+  background: var(--social-x-gradient);
+  border-color: rgba(246, 234, 214, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 14px 28px rgba(8, 8, 8, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .socialsContainer a[aria-label="TikTok"]:is(:hover, :focus-visible),
@@ -1485,6 +1650,11 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   text-align: center;
   font-size: clamp(2.6rem, 4.4vw, 3.65rem);
   color: var(--color-primary);
+  -webkit-text-stroke: 0.58px rgba(216, 169, 74, 0.56);
+  paint-order: stroke fill;
+  text-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.18),
+    0 0 10px rgba(216, 169, 74, 0.1);
 }
 
 .menu h3 {
@@ -1536,6 +1706,14 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   font-family: "Bebas Neue", sans-serif;
   font-size: 2rem;
   letter-spacing: 0.05em;
+}
+
+.menu .menuGroupTitle {
+  -webkit-text-stroke: 0.42px rgba(216, 169, 74, 0.5);
+  paint-order: stroke fill;
+  text-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.15),
+    0 0 8px rgba(216, 169, 74, 0.08);
 }
 
 .menuItem,
@@ -1823,6 +2001,17 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     background-clip: padding-box;
     box-shadow: 0 28px 60px rgba(4, 1, 2, 0.3);
     backdrop-filter: blur(8px);
+  }
+
+  .home-hero-text::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--gold-shimmer-line);
+    border-radius: inherit;
+    opacity: 0.72;
+    pointer-events: none;
+    animation: gold-border-shimmer 8s ease-in-out infinite;
   }
 
   .home-hero-text #heroLogo {
