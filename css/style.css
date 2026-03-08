@@ -1778,6 +1778,12 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   font-family: var(--font-body);
 }
 
+.footer-copy {
+  display: block;
+  margin-top: 0.18rem;
+  text-align: center;
+}
+
 .footer-text p a {
   color: var(--color-primary);
   text-decoration: none;
