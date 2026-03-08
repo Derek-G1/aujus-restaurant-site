@@ -165,6 +165,8 @@ body::after {
 }
 
 .featureCard,
+.hero-kicker,
+.hero-badge,
 .i-block,
 .section-kicker,
 .promo-banner,
@@ -184,6 +186,8 @@ body::after {
 }
 
 .featureCard::after,
+.hero-kicker::after,
+.hero-badge::after,
 .i-block::after,
 .section-kicker::after,
 .promo-banner::after,
@@ -578,7 +582,7 @@ h3 {
 }
 
 .smallText {
-  font-size: 0.78rem;
+  font-size: 0.84rem;
 }
 
 #alertModal {
@@ -914,11 +918,14 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   align-items: center;
   gap: 0.6rem;
   padding: 0.55rem 1rem;
-  border: 1px solid rgba(246, 234, 214, 0.28);
+  border: 2px solid var(--border-strong);
   border-radius: 999px;
   background:
     linear-gradient(180deg, rgba(255, 251, 241, 0.1), rgba(255, 255, 255, 0.04)),
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 24px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 229, 171, 0.08),
+    0 18px 34px rgba(12, 4, 7, 0.22);
   color: rgba(246, 234, 214, 0.92);
   font-family: var(--font-ui);
   font-size: 0.84rem;
@@ -965,16 +972,16 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
 .hero-badge {
   padding: 1.08rem 1.2rem;
-  border: 1px solid rgba(246, 234, 214, 0.44);
+  border: 2px solid var(--border-strong);
   border-radius: var(--radius-sm);
   background:
     linear-gradient(135deg, rgba(255, 247, 225, 0.14), rgba(255, 255, 255, 0.04)),
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 26px);
+  background-clip: padding-box;
   backdrop-filter: blur(10px);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-    inset 0 0 0 4px rgba(255, 232, 173, 0.05),
-    0 22px 42px rgba(8, 3, 5, 0.22);
+    inset 0 0 0 1px rgba(255, 229, 171, 0.08),
+    0 30px 54px rgba(12, 4, 7, 0.28);
 }
 
 .hero-badge span {
@@ -1063,6 +1070,8 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 .featureCard h3 {
   font-family: var(--font-display);
   font-size: 2rem;
+  line-height: 1.15;
+  min-height: 2.3em;
   letter-spacing: 0.08em;
   -webkit-text-stroke: 0.5px rgba(216, 169, 74, 0.56);
   paint-order: stroke fill;
@@ -1202,8 +1211,12 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 .about p {
   padding: 0;
   color: var(--color-copy);
-  font-size: clamp(1.05rem, 1.45vw, 1.16rem);
+  font-size: clamp(1.1rem, 1.55vw, 1.22rem);
   line-height: 1.8;
+}
+
+.homeDetails .about p {
+  font-size: clamp(1.16rem, 1.7vw, 1.3rem);
 }
 
 .section-kicker {
@@ -1230,7 +1243,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   border-left: 5px solid var(--gold-ring-strong);
   box-shadow: inset 10px 0 18px -16px var(--gold-shimmer-glow-strong);
   color: var(--color-primary-deep);
-  font-size: clamp(1.08rem, 1.8vw, 1.28rem) !important;
+  font-size: clamp(1.14rem, 1.95vw, 1.36rem) !important;
   line-height: 1.75;
 }
 
@@ -1283,7 +1296,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   margin: 0;
   max-width: 32rem;
   color: var(--color-copy);
-  font-size: 1.04rem;
+  font-size: 1.11rem;
   line-height: 1.7;
 }
 
@@ -1318,6 +1331,10 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     0 12px 24px rgba(23, 7, 11, 0.08);
   color: var(--color-primary-deep);
   line-height: 1.7;
+}
+
+.homeDetails .location .info-callout {
+  font-size: 1.1rem;
 }
 
 .location .btn-phone {
@@ -1410,6 +1427,16 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   text-transform: uppercase;
 }
 
+.homeDetails .location .address-card strong {
+  font-size: 1.16rem;
+}
+
+.homeDetails .location .address-card span,
+.homeDetails .location .map-picker-label,
+.homeDetails .location .map-app-link span {
+  font-size: 0.8rem;
+}
+
 .map-option-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1458,6 +1485,10 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   color: var(--color-primary);
   font-size: 1rem;
   line-height: 1.35;
+}
+
+.homeDetails .location .map-app-link strong {
+  font-size: 1.08rem;
 }
 
 .map-app-google {
@@ -1523,7 +1554,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
 .hoursList {
   display: grid;
-  gap: 0.75rem;
+  gap: 1.62rem;
   list-style: none;
 }
 
@@ -1559,7 +1590,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
 .hoursList strong {
   color: var(--color-primary);
-  font-size: 1rem;
+  font-size: 1.06rem;
   text-align: right;
 }
 
@@ -1780,7 +1811,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 .c-menu-h2 {
   margin-top: 0.9rem;
   text-align: center;
-  font-size: 1.05rem;
+  font-size: 1.16rem;
   color: var(--color-ink-soft);
   font-family: var(--font-body);
   letter-spacing: 0;
@@ -1854,6 +1885,8 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   width: 100%;
   margin-top: 0.55rem;
   color: var(--color-copy);
+  font-size: 1.08rem;
+  line-height: 1.72;
 }
 
 .menuItemTitle {
@@ -1865,8 +1898,8 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 }
 
 .menuItemTitle h3 {
-  font-size: 1.08rem;
-  line-height: 1.4;
+  font-size: 1.18rem;
+  line-height: 1.42;
 }
 
 .menuItemTitle h3:last-child {
@@ -1893,7 +1926,13 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 .disclaimer {
   margin-top: 2rem;
   color: var(--color-ink-soft);
-  font-size: 0.8rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.menuGroup > p {
+  font-size: 1.08rem;
+  line-height: 1.7;
 }
 
 /* ---------------------------- Gallery Page ----------------------------------- */
@@ -2189,6 +2228,10 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
 /* ------------------------ MEDIA QUERIES ------------------------------- */
 @media screen and (min-width: 1025px) {
+  .contentContainer .main-hero {
+    padding-top: clamp(0.9rem, 1.35vw, 1.2rem);
+  }
+
   nav {
     justify-content: center;
   }
@@ -2230,7 +2273,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     inset: 0;
     border: 1px solid var(--gold-shimmer-line);
     border-radius: inherit;
-    opacity: 0.72;
+    opacity: 0.68;
     pointer-events: none;
     animation: gold-border-shimmer 12s ease-in-out infinite;
   }
@@ -2274,9 +2317,12 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   }
 
   .homeDetails .aboutParagraphWrapper,
-  .homeDetails .visit-stack,
-  .homeDetails .hoursList {
+  .homeDetails .visit-stack {
     gap: 0.7rem;
+  }
+
+  .homeDetails .hoursList {
+    gap: 1.74rem;
   }
 
   .homeDetails .location .btn-phone {
@@ -2371,9 +2417,12 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   }
 
   .homeDetails .aboutParagraphWrapper,
-  .homeDetails .visit-stack,
-  .homeDetails .hoursList {
+  .homeDetails .visit-stack {
     gap: 0.65rem;
+  }
+
+  .homeDetails .hoursList {
+    gap: 1.62rem;
   }
 
   .homeDetails .info-callout,
