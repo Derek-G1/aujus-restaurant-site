@@ -1061,6 +1061,9 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
 .location .btn-phone {
   width: fit-content;
+  justify-self: center;
+  margin-top: 0.45rem;
+  margin-bottom: 0.25rem;
 }
 
 .location-link {
@@ -1072,7 +1075,8 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   font-weight: 700;
 }
 
-.location-card {
+.location-card,
+.address-card {
   display: grid;
   gap: 0.4rem;
   padding: 1rem 1.1rem;
@@ -1083,6 +1087,9 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     inset 0 0 0 1px var(--gold-ring),
     0 0 0 2px var(--gold-ring-soft),
     0 14px 28px rgba(67, 13, 25, 0.08);
+}
+
+.location-card {
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
@@ -1110,6 +1117,99 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   color: var(--color-primary);
   font-size: 1.08rem;
   line-height: 1.45;
+}
+
+.address-card strong {
+  color: var(--color-primary);
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
+
+.address-card span {
+  color: var(--color-ink-soft);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.map-picker {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.map-picker-label {
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.map-option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.map-app-link {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(67, 13, 25, 0.12);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 233, 214, 0.88));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 10px 22px rgba(67, 13, 25, 0.08);
+  color: var(--color-primary-deep);
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.map-app-link:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.56),
+    0 14px 28px rgba(67, 13, 25, 0.12);
+}
+
+.map-app-link span {
+  color: var(--color-ink-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.map-app-link strong {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.map-app-google {
+  border-color: rgba(66, 133, 244, 0.26);
+}
+
+.map-app-google:hover {
+  border-color: rgba(66, 133, 244, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.56),
+    0 14px 28px rgba(66, 133, 244, 0.14);
+}
+
+.map-app-waze {
+  border-color: rgba(40, 180, 223, 0.28);
+}
+
+.map-app-waze:hover {
+  border-color: rgba(40, 180, 223, 0.52);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.56),
+    0 14px 28px rgba(40, 180, 223, 0.14);
 }
 
 .location iframe {
@@ -1424,18 +1524,21 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 }
 
 .menuItem,
-.menuSideItem {
+.menuSideItem,
+.menuSideItemRight {
   margin: 0;
   padding: 1rem 0;
 }
 
 .menuItem + .menuItem,
-.menuSideItem + .menuSideItem {
+.menuSideItem + .menuSideItem,
+.menuSideItemRight + .menuSideItemRight {
   border-top: 1px solid rgba(67, 13, 25, 0.08);
 }
 
 .menuItem p,
-.menuSideItem p {
+.menuSideItem p,
+.menuSideItemRight p {
   width: 100%;
   margin-top: 0.55rem;
   color: var(--color-copy);
@@ -1460,7 +1563,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 }
 
 .menuSideItemRight h3 {
-  padding-bottom: 1rem;
+  padding-bottom: 0;
 }
 
 .btnWrapper {
@@ -1757,8 +1860,15 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     gap: 0.7rem;
   }
 
+  .homeDetails .location .btn-phone {
+    margin-top: 0.65rem;
+    margin-bottom: 0.5rem;
+  }
+
   .homeDetails .info-callout,
   .homeDetails .location-card,
+  .homeDetails .address-card,
+  .homeDetails .map-app-link,
   .homeDetails .hoursList li {
     padding-inline: 0.95rem;
   }
@@ -1903,8 +2013,14 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   }
 
   .location .btn-phone,
-  .location-card {
+  .location-card,
+  .address-card,
+  .map-picker {
     width: 100%;
+  }
+
+  .map-option-grid {
+    grid-template-columns: 1fr;
   }
 
   .promo-banner {
