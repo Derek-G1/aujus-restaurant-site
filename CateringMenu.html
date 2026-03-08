@@ -123,9 +123,23 @@
   </div>
 
   <div class="menuWrapper">
-    <div class="menu">
+    <div class="menu menu--display-modes" data-display-mode="standard">
       <h2>Catering Menu</h2>
       <p class="c-menu-h2">Call us directly for custom orders by the tray.</p>
+      <div class="menuDisplayControl" data-display-options>
+        <button class="menuDisplayToggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="menuDisplayPanelCatering" data-display-toggle>
+          <span class="menuDisplayToggleLabel">Display Options</span>
+          <span class="menuDisplayCurrent" data-display-current>Standard</span>
+        </button>
+        <div class="menuDisplayPanel" id="menuDisplayPanelCatering" data-display-panel hidden>
+          <p class="menuDisplayPanelLabel">Choose the menu view that fits your screen best.</p>
+          <div class="menuDisplayChoices" role="group" aria-label="Menu display options">
+            <button class="menuDisplayChoice is-active" type="button" data-display-choice="standard" aria-pressed="true">Standard</button>
+            <button class="menuDisplayChoice" type="button" data-display-choice="comfortable" aria-pressed="false">Comfortable</button>
+            <button class="menuDisplayChoice" type="button" data-display-choice="compact" aria-pressed="false">Compact</button>
+          </div>
+        </div>
+      </div>
 
       <div class="catering-flex-container">
         <h2 class="menuGroupTitle">Meats</h2>

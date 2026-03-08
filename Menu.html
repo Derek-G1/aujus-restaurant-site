@@ -145,9 +145,23 @@
     </div>
 
     <div class="menuWrapper">
-      <div class="menu">
+      <div class="menu menu--display-modes" data-display-mode="standard">
         <h2>Menu</h2>
         <h3>For orders over $100 please call ahead</h3>
+        <div class="menuDisplayControl" data-display-options>
+          <button class="menuDisplayToggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="menuDisplayPanelMain" data-display-toggle>
+            <span class="menuDisplayToggleLabel">Display Options</span>
+            <span class="menuDisplayCurrent" data-display-current>Standard</span>
+          </button>
+          <div class="menuDisplayPanel" id="menuDisplayPanelMain" data-display-panel hidden>
+            <p class="menuDisplayPanelLabel">Choose the menu view that fits your screen best.</p>
+            <div class="menuDisplayChoices" role="group" aria-label="Menu display options">
+              <button class="menuDisplayChoice is-active" type="button" data-display-choice="standard" aria-pressed="true">Standard</button>
+              <button class="menuDisplayChoice" type="button" data-display-choice="comfortable" aria-pressed="false">Comfortable</button>
+              <button class="menuDisplayChoice" type="button" data-display-choice="compact" aria-pressed="false">Compact</button>
+            </div>
+          </div>
+        </div>
         <div class="menuItemsWrapper">
           <div class="menuGroupFlexContainer">
             <div class="menuGroup">
