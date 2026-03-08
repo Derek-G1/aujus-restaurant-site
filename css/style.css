@@ -167,6 +167,85 @@ h3 {
     0 26px 46px rgba(216, 169, 74, 0.42);
 }
 
+.nav-order-label {
+  display: inline-block;
+  color: var(--color-secondary);
+}
+
+.order-now-label {
+  display: inline-block;
+  color: var(--color-primary-deep);
+}
+
+@keyframes orderTextCycle {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes orderNowTextPass {
+  0% {
+    background-position: 130% 50%;
+  }
+  100% {
+    background-position: -18% 50%;
+  }
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .nav-order-label {
+    background-image: linear-gradient(
+      90deg,
+      #ddc5a0 0%,
+      #f6ead6 12%,
+      #d8a94a 30%,
+      #f6ead6 46%,
+      #ffffff 54%,
+      #f6ead6 62%,
+      #d8a94a 74%,
+      #ddc5a0 88%,
+      #f6ead6 100%
+    );
+    background-size: 300% 100%;
+    animation: orderNowTextPass 5.9s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 0 14px rgba(216, 169, 74, 0.18);
+  }
+
+  .order-now-label {
+    background-image: linear-gradient(
+      90deg,
+      #430d19 0%,
+      #430d19 14%,
+      #7d1d2f 30%,
+      #b67d2a 44%,
+      #d8a94a 50%,
+      #f6ead6 56%,
+      #d8a94a 62%,
+      #b67d2a 72%,
+      #7d1d2f 86%,
+      #430d19 100%
+    );
+    background-size: 300% 100%;
+    animation: orderNowTextPass 5.6s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(216, 169, 74, 0.08);
+  }
+
+  .hero-links .order-now-label {
+    animation-duration: 6.6s;
+  }
+}
+
 .btn-secondary {
   color: var(--color-secondary);
   background: rgba(255, 255, 255, 0.12);
@@ -478,6 +557,15 @@ nav ul li a:hover {
     0 0 26px rgba(216, 169, 74, 0.14);
 }
 
+.home-hero-text #heroTitle {
+  color: #fff4de;
+  -webkit-text-stroke: 2px rgba(216, 169, 74, 0.9);
+  paint-order: stroke fill;
+  text-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 26px rgba(216, 169, 74, 0.18);
+}
+
 .hero-text p {
   max-width: 40rem;
   margin-top: 1rem;
@@ -542,13 +630,13 @@ nav ul li a:hover {
 
 .hero-badge {
   padding: 1.08rem 1.2rem;
-  border: 1px solid rgba(36, 19, 15, 0.22);
+  border: 1px solid rgba(246, 234, 214, 0.68);
   border-radius: var(--radius-sm);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05));
   backdrop-filter: blur(10px);
   box-shadow:
-    inset 0 0 0 1px rgba(216, 169, 74, 0.22),
-    0 0 0 1px rgba(216, 169, 74, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 0 0 1px rgba(246, 234, 214, 0.18),
     0 22px 42px rgba(8, 3, 5, 0.22);
 }
 
