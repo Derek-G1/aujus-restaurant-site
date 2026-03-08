@@ -2247,6 +2247,16 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     padding-bottom: 2.5rem;
   }
 
+  body.mobile-hero-logo .hero-text {
+    text-align: center;
+  }
+
+  body.mobile-hero-logo .hero-text h1,
+  body.mobile-hero-logo .hero-text p,
+  body.mobile-hero-logo #heroLogo {
+    margin-inline: auto;
+  }
+
   .hero-text h1 {
     font-size: clamp(3.3rem, 19vw, 5.2rem);
   }
