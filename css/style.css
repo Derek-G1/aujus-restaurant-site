@@ -1590,7 +1590,10 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
 .hoursList strong {
   color: var(--color-primary);
+  font-family: "Roboto", Georgia, serif;
   font-size: 1.06rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   text-align: right;
 }
 
