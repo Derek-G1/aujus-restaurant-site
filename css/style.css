@@ -2637,7 +2637,13 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
   .menuItemTitle {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+  }
+
+  .menuItemTitle h3 {
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .menuItemTitle h3:last-child {
