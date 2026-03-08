@@ -939,6 +939,12 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     0 0 9px rgba(216, 169, 74, 0.08);
 }
 
+.home-hero-text .hero-kicker {
+  width: fit-content;
+  justify-self: start;
+  padding-right: 0.52rem;
+}
+
 .hero-copy {
   max-width: 44rem;
   -webkit-text-stroke: 0.5px rgba(216, 169, 74, 0.52);
@@ -1335,6 +1341,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
 .homeDetails .location .info-callout {
   font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .location .btn-phone {
@@ -1763,7 +1770,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 }
 
 .footer-text p {
-  font-size: 0.94rem;
+  font-size: 1rem;
   font-family: var(--font-body);
 }
 
@@ -2668,7 +2675,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   }
 
   .footer-text p {
-    font-size: 0.84rem;
+    font-size: 0.9rem;
   }
 }
 
