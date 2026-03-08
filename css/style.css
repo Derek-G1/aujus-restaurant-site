@@ -1885,6 +1885,11 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   font-family: var(--font-display);
   font-size: 2rem;
   letter-spacing: 0.08em;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .menu .menuGroupTitle {
@@ -2654,9 +2659,11 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   }
 
   .menuGroupTitle {
-    font-size: clamp(1.55rem, 7vw, 1.8rem);
-    line-height: 1.18;
-    overflow-wrap: anywhere;
+    font-size: clamp(1.25rem, 4.9vw, 1.65rem);
+    line-height: 1.14;
+    letter-spacing: 0.05em;
+    overflow-wrap: normal;
+    text-wrap: balance;
   }
 
   .menuItemTitle {
@@ -2694,6 +2701,12 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 }
 
 @media screen and (max-width: 430px) {
+  .menuGroupTitle {
+    font-size: clamp(1.12rem, 5.2vw, 1.26rem);
+    line-height: 1.12;
+    letter-spacing: 0.03em;
+  }
+
   .hoursList li {
     grid-template-columns: 1fr;
     align-items: start;
