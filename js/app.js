@@ -1,10 +1,47 @@
 // Hamburger menu animation on click and toggle nav items
 const hamburgerMenu = document.getElementById("hamburgerMenu");
-if (hamburgerMenu) {
-  hamburgerMenu.addEventListener("click", () => {
-    document.getElementById("responsiveLinks").classList.toggle("showOnMobile");
-    document.getElementById("hamburgerMenu").classList.toggle("hamActive");
-    document.getElementById("logoHolder").classList.toggle("hamOpenLogo");
+const responsiveLinks = document.getElementById("responsiveLinks");
+const mobileNavBreakpoint = 1024;
+
+if (hamburgerMenu && responsiveLinks) {
+  const closeMobileMenu = () => {
+    responsiveLinks.classList.remove("showOnMobile");
+    hamburgerMenu.classList.remove("hamActive");
+    hamburgerMenu.setAttribute("aria-expanded", "false");
+  };
+
+  const toggleMobileMenu = () => {
+    const isOpen = responsiveLinks.classList.toggle("showOnMobile");
+    hamburgerMenu.classList.toggle("hamActive", isOpen);
+    hamburgerMenu.setAttribute("aria-expanded", String(isOpen));
+  };
+
+  hamburgerMenu.setAttribute("role", "button");
+  hamburgerMenu.setAttribute("tabindex", "0");
+  hamburgerMenu.setAttribute("aria-controls", "responsiveLinks");
+  hamburgerMenu.setAttribute("aria-expanded", "false");
+  hamburgerMenu.setAttribute("aria-label", "Toggle navigation menu");
+
+  hamburgerMenu.addEventListener("click", toggleMobileMenu);
+  hamburgerMenu.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggleMobileMenu();
+    }
+  });
+
+  responsiveLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= mobileNavBreakpoint) {
+        closeMobileMenu();
+      }
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > mobileNavBreakpoint) {
+      closeMobileMenu();
+    }
   });
 }
 

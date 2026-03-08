@@ -20,7 +20,7 @@
 
   <link rel="icon" href="images/32x32LogoWithSkylineCompressed.png" type="image/png">
   
-  <link rel="preload" href="./images/AujusBackground.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="./images/AujusBackground1920scaled.webp" as="image" fetchpriority="high">
 
   <meta property="og:title" content="Au Jus | Authentic Chicago Style Italian Beef">
   <meta property="og:description" content="The best Au Jus in Northeast Ohio. Serving authentic Chicago-style Italian Beef, sausage sandwiches, and catering in Parma, OH.">
@@ -106,7 +106,7 @@
   </script>
 </head>
 
-<body>
+<body class="mobile-hero-logo">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8JW2R9K"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -116,7 +116,6 @@
     <div class="logoHolder" id="logoHolder">
       <a href="/"><img id="logo" src="./images/LogoWithSkylineCompressed.png" alt="Au Jus Restaurant Logo - Chicago Style Italian Beef Parma" class="logo" width="174" height="179" fetchpriority="high"></a>
     </div>
-    <a href="https://www.toasttab.com/au-jus-llc-5875-broadview-rd/v3" target="_blank" rel="noopener noreferrer" id="orderBtn">Order Now</a>
     <ul id="responsiveLinks">
       <li class="navItem"><a href="/">Home</a></li>
       <li class="navItem"><a href="Menu.html">Menu</a></li>
@@ -130,64 +129,85 @@
   <div class="contentContainer">
     <div class="heroContainer">
       <div class="main-hero">
-        <div class="hero-text">
+        <div class="hero-text home-hero-text">
+          <span class="hero-kicker">Chicago style. Parma roots.</span>
           <h1 id="heroTitle">Au Jus</h1>
-          <img class="heroLogo" id="heroLogo" src="images/LogoWithSkylineCompressed.png" alt="Au Jus Authentic Italian Beef Sandwich Shop">
-          <p>The best Au Jus in Northeast Ohio</p>
+          <img class="heroLogo" id="heroLogo" src="./images/LogoWithSkylineCompressed.png" alt="Au Jus Authentic Italian Beef Sandwich Shop">
+          <p class="hero-copy">Authentic Chicago-style Italian beef, spicy sausage sandwiches, and catering built for big flavor in Northeast Ohio.</p>
           <div class="hero-links">
             <a class="btn btn-primary" href="https://www.toasttab.com/au-jus-llc-5875-broadview-rd/v3" target="_blank" rel="noopener noreferrer">Order Now</a>
             <a class="btn btn-secondary" href="./Menu.html">Browse Menu</a>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="infoBlocks" style="margin-top: 5rem; margin-bottom: 0; padding-bottom: 0;">
-      <div class="i-block about" style="width: 95%; margin: auto; margin-bottom: 3rem;">
-        
-       <div class="promo-banner">
-          <h3>Try our new Italian Beef egg rolls!</h3>
-      </div>
-
-        <h2>What is Chicago Style Italian Beef?</h2>
-        
-        <div class="aboutParagraphWrapper" style="position: relative; height: auto;">
-          <div>
-            <p style="padding-bottom: 1rem;">A staple of Chicago cuisine, the <strong>Italian Beef sandwich</strong> originated in the 1930s. It consists of thin slices of seasoned roast beef, simmered and served in its own juices (the "au jus") on a long Italian-style roll.</p>
-            
-            <p style="padding-bottom: 1rem;">At Au Jus in Parma, we serve it the authentic way: topped with your choice of <strong>Chicago-style Giardiniera</strong> (pickled vegetables) or sweet peppers. You can order it dry, wet, or dipped!</p>
+          <div class="hero-badges">
+            <div class="hero-badge">
+              <span>Visit us</span>
+              <strong>5875 Broadview Rd, Parma</strong>
+            </div>
+            <div class="hero-badge">
+              <span>Call ahead</span>
+              <strong>Orders over $100</strong>
+            </div>
+            <div class="hero-badge">
+              <span>Open</span>
+              <strong>Monday through Saturday</strong>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="infoBlocks">
-      <div class="i-block about">
+    <section class="featureStrip" aria-label="Quick links">
+      <a class="featureCard" href="Menu.html">
+        <span>Most ordered</span>
+        <h3>See the Full Menu</h3>
+        <p>Browse Italian beef, sausage sandwiches, sides, and the house favorites people come back for.</p>
+      </a>
+      <a class="featureCard" href="CateringMenu.html">
+        <span>Feed a crowd</span>
+        <h3>Book Catering</h3>
+        <p>Build a party spread with beef, sausage, bread, and giardiniera for your next event.</p>
+      </a>
+      <a class="featureCard" href="ContactUs.html">
+        <span>Need details?</span>
+        <h3>Call or Visit</h3>
+        <p>Get directions, call ahead for larger orders, or reach out about catering and business inquiries.</p>
+      </a>
+    </section>
+
+    <section class="infoBlocks introBlocks">
+      <article class="i-block about spotlight-card">
+        <div class="promo-banner">
+          <h3>Now serving Italian beef egg rolls</h3>
+        </div>
+        <h2>What is Chicago-style Italian beef?</h2>
+        <div class="aboutParagraphWrapper">
+          <p>A staple of Chicago cuisine, the <strong>Italian Beef sandwich</strong> originated in the 1930s. It consists of thin slices of seasoned roast beef, simmered and served in its own juices on a long Italian-style roll.</p>
+          <p>At Au Jus in Parma, we serve it the authentic way: topped with your choice of <strong>Chicago-style giardiniera</strong> or sweet peppers. Order it dry, wet, or dipped.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="infoBlocks homeDetails">
+      <article class="i-block about">
         <h2>About Au Jus - Parma's Italian Beef Specialist</h2>
         <div class="aboutParagraphWrapper">
-          <div>
-            <p>Welcome to Au Jus, the premier destination for <strong>Authentic Chicago Style Italian Beef in Parma, Ohio</strong>. Unlike a standard sandwich shop, we slow-roast our seasoned beef daily, serving it thinly sliced on fresh French bread and dipped in our signature homemade gravy (au jus).</p>
-            <br>
-            <p>Whether you are craving a "wet" beef sandwich with hot giardiniera, a spicy sausage sandwich, or need <strong>catering in Northeast Ohio</strong> for your next event, we are committed to being the area's top-rated casual dining restaurant.</p>
-          </div>
+          <p>Welcome to Au Jus, the premier destination for <strong>authentic Chicago-style Italian beef in Parma, Ohio</strong>. We slow-roast our seasoned beef daily, pile it onto fresh French bread, and serve it with our signature homemade au jus.</p>
+          <p>Whether you are craving a wet beef sandwich with hot giardiniera, a spicy sausage sandwich, or need <strong>catering in Northeast Ohio</strong> for your next event, we focus on big flavor and straightforward service.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="i-block location">
-        <h2>Location</h2>
-        <p>For orders over $100 please call ahead</p>
-        <p></p>
+      <article class="i-block location">
+        <h2>Visit Au Jus</h2>
+        <p>For orders over $100 please call ahead.</p>
         <a class="btn btn-phone" href="tel:216-795-5063">216-795-5063</a>
-        <p>Click link below to open in Waze</p>
-        <br>
-        <a href="https://goo.gl/maps/zt9JgboQ2AMWFXVA8" target="_blank" rel="noopener noreferrer">
-          <p>5875 Broadview Rd, Parma OH 44134</p>
+        <p>Tap below to open directions in Waze.</p>
+        <a class="location-link" href="https://goo.gl/maps/zt9JgboQ2AMWFXVA8" target="_blank" rel="noopener noreferrer">
+          <p>5875 Broadview Rd, Parma, OH 44134</p>
         </a>
-        <br>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.6466762615714!2d-81.69191168420123!3d41.403478902959584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8830e58a60a85c73%3A0x12bc4bde88cc602!2s5875%20Broadview%20Rd%2C%20Parma%2C%20OH%2044134!5e0!3m2!1sen!2sus!4v1646168921815!5m2!1sen!2sus" width="100%" height="350px" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
-      </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.6466762615714!2d-81.69191168420123!3d41.403478902959584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8830e58a60a85c73%3A0x12bc4bde88cc602!2s5875%20Broadview%20Rd%2C%20Parma%2C%20OH%2044134!5e0!3m2!1sen!2sus!4v1646168921815!5m2!1sen!2sus" title="Map of Au Jus in Parma, Ohio" allowfullscreen="" loading="lazy"></iframe>
+      </article>
 
-      <div class="i-block hours">
+      <article class="i-block hours">
         <h2>Hours</h2>
         <div class="daysAndHours">
           <div id="days">
@@ -209,8 +229,8 @@
             <p>Closed</p>
           </div>
         </div>
-      </div>
-    </div>
+      </article>
+    </section>
   </div>
 
  <div class="socialsContainer">
@@ -246,9 +266,9 @@
     <div class="footer-text">
       <p>
         <a href="PrivacyPolicy.html" style="color: black; text-decoration: underline;">Privacy Policy</a>
-         | 
+         |
         Website developed by <a href="https://www.DerekGembus.com">www.DerekGembus.com</a>
-        © 2026 Au Jus LLC.
+        &copy; 2026 Au Jus LLC.
       </p>
     </div>
   </div>
