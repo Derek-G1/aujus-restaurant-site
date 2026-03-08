@@ -2635,6 +2635,12 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     padding: 1.35rem;
   }
 
+  .menuGroupTitle {
+    font-size: clamp(1.55rem, 7vw, 1.8rem);
+    line-height: 1.18;
+    overflow-wrap: anywhere;
+  }
+
   .menuItemTitle {
     flex-direction: column;
     align-items: stretch;
@@ -2643,6 +2649,12 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   .menuItemTitle h3 {
     width: 100%;
     min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .menuItem p,
+  .menuSideItem p,
+  .menuSideItemRight p {
     overflow-wrap: anywhere;
   }
 
