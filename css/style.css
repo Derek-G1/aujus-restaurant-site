@@ -743,6 +743,11 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
 .hero-copy {
   max-width: 44rem;
+  -webkit-text-stroke: 0.5px rgba(216, 169, 74, 0.52);
+  paint-order: stroke fill;
+  text-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.24),
+    0 0 10px rgba(216, 169, 74, 0.08);
 }
 
 .hero-note {
@@ -751,7 +756,11 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   font-size: 0.98rem;
   letter-spacing: 0.03em;
   line-height: 1.7;
-  text-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+  -webkit-text-stroke: 0.45px rgba(216, 169, 74, 0.46);
+  paint-order: stroke fill;
+  text-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.24),
+    0 0 9px rgba(216, 169, 74, 0.07);
 }
 
 .hero-badges {
