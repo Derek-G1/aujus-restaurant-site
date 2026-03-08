@@ -2641,10 +2641,21 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     padding: 1.35rem;
   }
 
+  .menuGroup,
+  .longMenuGroup {
+    padding: 1.1rem;
+  }
+
   .menuGroupTitle {
-    font-size: clamp(1.55rem, 7vw, 1.8rem);
-    line-height: 1.18;
-    overflow-wrap: anywhere;
+    max-width: 100%;
+    font-size: clamp(1.1rem, 4.8vw, 1.45rem);
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+    text-wrap: balance;
   }
 
   .menuItemTitle {
@@ -2655,13 +2666,16 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   .menuItemTitle h3 {
     width: 100%;
     min-width: 0;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
   }
 
   .menuItem p,
   .menuSideItem p,
   .menuSideItemRight p {
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .menuItemTitle h3:last-child {
@@ -2724,6 +2738,16 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 }
 
 @media screen and (max-width: 360px) {
+  .menuGroup,
+  .longMenuGroup {
+    padding: 1rem;
+  }
+
+  .menuGroupTitle {
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+
   .daysAndHours {
     grid-template-columns: 1fr;
   }
