@@ -945,6 +945,10 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   padding-right: 0.52rem;
 }
 
+.mobile-kicker-break {
+  display: none;
+}
+
 .hero-copy {
   max-width: 44rem;
   -webkit-text-stroke: 0.5px rgba(216, 169, 74, 0.52);
@@ -2559,6 +2563,10 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
   .home-hero-text .hero-kicker {
     align-self: center;
+  }
+
+  .mobile-kicker-break {
+    display: block;
   }
 
   .home-hero-text .hero-copy {
