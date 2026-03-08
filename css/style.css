@@ -2539,8 +2539,24 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
 @media screen and (max-width: 767px) {
   :root {
-    --page-width: calc(100vw - 1.5rem);
-    --section-width: calc(100vw - 1.5rem);
+    --phone-frame-gap: 1.5rem;
+    --phone-shell-padding: 1.35rem;
+    --phone-card-padding: 1.35rem;
+    --phone-menu-card-padding: 1.12rem;
+    --phone-nav-inline: 0.75rem;
+    --phone-nav-link-size: 0.82rem;
+    --phone-nav-link-tracking: 0.11em;
+    --phone-hero-bottom: 2.5rem;
+    --phone-section-title-size: 2.1rem;
+    --phone-subheading-size: 1.28rem;
+    --phone-menu-group-size: 1.38rem;
+    --phone-menu-group-line: 1.14;
+    --phone-menu-group-spacing: 0.04em;
+    --phone-menu-item-size: 1.08rem;
+    --phone-menu-copy-size: 1rem;
+    --phone-footer-size: 0.92rem;
+    --page-width: calc(100vw - var(--phone-frame-gap));
+    --section-width: calc(100vw - var(--phone-frame-gap));
   }
 
   html {
@@ -2548,16 +2564,36 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   }
 
   nav {
-    gap: 0.5rem;
-    padding: 0.65rem 0.75rem;
+    gap: 0.45rem;
+    padding: 0.65rem var(--phone-nav-inline);
+  }
+
+  nav ul {
+    gap: 0.4rem;
+    padding: 0.7rem 0 0.2rem;
+  }
+
+  nav ul li a {
+    min-height: 2.7rem;
+    padding: 0.7rem 0.9rem;
+    font-size: var(--phone-nav-link-size);
+    letter-spacing: var(--phone-nav-link-tracking);
+    line-height: 1.25;
+    white-space: normal;
+    text-align: center;
+  }
+
+  #hamburgerMenu {
+    width: 2.6rem;
+    height: 2.6rem;
   }
 
   #logo {
-    width: 78px;
+    width: 76px;
   }
 
   .hero-text {
-    padding-bottom: 2.5rem;
+    padding-bottom: var(--phone-hero-bottom);
   }
 
   body.mobile-hero-logo .hero-text {
@@ -2613,7 +2649,7 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
   body.mobile-hero-logo #heroLogo {
     display: block;
-    width: min(250px, 58vw);
+    width: min(230px, 56vw);
     margin-top: 0.15rem;
     margin-bottom: 1rem;
     filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.35));
@@ -2622,10 +2658,33 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   .hero-links {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.85rem;
   }
 
   .hero-links .btn {
     width: 100%;
+  }
+
+  .hero-badges {
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-badge {
+    padding: 0.95rem 1rem;
+  }
+
+  .hero-badge strong {
+    font-size: 1rem;
+  }
+
+  .featureStrip,
+  .homeDetails,
+  .menuWrapper,
+  .gallery-container,
+  .formContainer,
+  .socialsContainer {
+    width: min(100%, var(--section-width));
   }
 
   .location .btn-phone,
@@ -2650,51 +2709,114 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
   .featureCard {
     min-height: auto;
+    padding: 1.45rem;
+  }
+
+  .featureCard h3 {
+    min-height: auto;
+    font-size: clamp(1.65rem, 8vw, 1.9rem);
+  }
+
+  .featureCard p {
+    font-size: 0.98rem;
+  }
+
+  .i-block {
+    padding: var(--phone-card-padding);
+  }
+
+  .i-block h2 {
+    font-size: clamp(1.95rem, 7.8vw, var(--phone-section-title-size));
+  }
+
+  .promo-banner {
+    gap: 1rem;
+    padding: 1.1rem 1.15rem;
+  }
+
+  .promo-banner h3 {
+    font-size: clamp(1.65rem, 7.8vw, 2.1rem);
+  }
+
+  .promo-banner p {
+    font-size: 1rem;
+  }
+
+  .location-card,
+  .address-card {
+    padding: 0.95rem 1rem;
+  }
+
+  .location-card strong,
+  .address-card strong,
+  .map-app-link strong {
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .map-app-link {
+    padding: 0.9rem 0.95rem;
+  }
+
+  .location iframe {
+    min-height: 16rem;
+  }
+
+  .daysAndHours {
+    gap: 0.75rem;
+  }
+
+  .hoursList {
+    gap: 1rem;
+  }
+
+  .hoursList li {
+    padding: 0.85rem 0.95rem;
+    row-gap: 0.3rem;
+  }
+
+  .hoursList span {
+    font-size: 0.96rem;
+  }
+
+  .hoursList strong {
+    font-size: 1rem;
   }
 
   .menu,
   .gallery-container,
-  .formContainer {
-    padding: 1.35rem;
+  .formContainer,
+  .error-card {
+    padding: var(--phone-shell-padding);
+  }
+
+  .menuGroup,
+  .longMenuGroup,
+  .cateringMenuItem {
+    padding: var(--phone-menu-card-padding);
+  }
+
+  .menuItemsWrapper,
+  .menuItem-flex-container {
+    gap: 0.9rem;
   }
 
   .menuGroupTitle {
-    font-size: clamp(1.25rem, 4.9vw, 1.65rem);
-    line-height: 1.14;
-    letter-spacing: 0.05em;
-    overflow-wrap: normal;
-    text-wrap: balance;
-  }
-
-  .menuGroup--sausage {
-    margin-top: 1.1rem;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-  }
-
-  .menuGroup--sausage::after {
-    content: none;
-  }
-
-  .menuGroup--sausage .menuGroupTitle {
-    margin-bottom: 1rem;
-    text-align: center;
-    font-size: clamp(1.08rem, 5vw, 1.32rem);
-    line-height: 1.12;
-    letter-spacing: 0.03em;
+    font-size: clamp(1.2rem, 5vw, var(--phone-menu-group-size));
+    line-height: var(--phone-menu-group-line);
+    letter-spacing: var(--phone-menu-group-spacing);
     overflow-wrap: normal;
     word-break: normal;
     hyphens: none;
     text-wrap: balance;
   }
 
-  .menuGroup--sausage .menuItemTitle h3,
-  .menuGroup--sausage .menuItem p {
-    overflow-wrap: normal;
-    word-break: normal;
+  .smallText {
+    display: block;
+    margin-top: 0.18rem;
+    font-size: 0.78rem;
+    line-height: 1.42;
   }
 
   .menuItemTitle {
@@ -2705,6 +2827,8 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   .menuItemTitle h3 {
     width: 100%;
     min-width: 0;
+    font-size: var(--phone-menu-item-size);
+    line-height: 1.36;
     overflow-wrap: break-word;
     word-break: normal;
     hyphens: none;
@@ -2713,7 +2837,10 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   .menuItem p,
   .menuSideItem p,
   .menuSideItemRight p {
-    overflow-wrap: anywhere;
+    font-size: var(--phone-menu-copy-size);
+    line-height: 1.62;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .menuItemTitle h3:last-child {
@@ -2721,8 +2848,108 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     text-align: left;
   }
 
+  .gallery-container {
+    gap: 1rem;
+  }
+
+  .gallery-container h1 {
+    font-size: clamp(2rem, 8vw, 2.6rem);
+  }
+
+  .video-page-intro {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .tiktok-embed-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 0.5rem;
+    overflow: hidden;
+  }
+
+  .tiktok-embed {
+    width: min(100%, 720px) !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .formContainer > h1 {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  .formContainer > h2,
+  .formContainer > h3 {
+    font-size: clamp(1.12rem, 4.8vw, var(--phone-subheading-size));
+    line-height: 1.35;
+  }
+
+  .contactUsButtons {
+    width: 100%;
+    margin-bottom: 0.85rem;
+  }
+
+  .contactUsButtons .btn-phone-cu-page,
+  .contactUsButtons .btn-email-cu-page {
+    width: 100%;
+  }
+
   .formInputWrapper {
     grid-template-columns: 1fr;
+  }
+
+  .formInput {
+    min-width: 0;
+  }
+
+  .socialsContainer,
+  .socialsContainerContact {
+    gap: 0.85rem;
+  }
+
+  .socialsContainer > div,
+  .socialsContainerContact > div {
+    gap: 0.7rem;
+  }
+
+  .socialsContainer a,
+  .socialsContainerContact a {
+    width: 2.9rem;
+    height: 2.9rem;
+  }
+
+  .footer-text {
+    padding: 0.95rem 0 1.2rem;
+  }
+
+  .footer-text p {
+    font-size: var(--phone-footer-size);
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+  }
+
+  .footer-copy {
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .error-card {
+    max-width: 100%;
+    padding: 1.6rem 1.2rem;
+  }
+
+  .error-card h1 {
+    font-size: clamp(2.2rem, 12vw, 3rem);
+  }
+
+  .error-card h2 {
+    font-size: clamp(1.35rem, 6vw, 1.85rem);
+    line-height: 1.18;
+  }
+
+  .error-card p {
+    font-size: 1rem;
+    line-height: 1.65;
   }
 
   .modal {
@@ -2731,21 +2958,40 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   }
 }
 
-@media screen and (max-width: 430px) {
-  .menuGroupTitle {
-    font-size: clamp(1.12rem, 5.2vw, 1.26rem);
-    line-height: 1.12;
-    letter-spacing: 0.03em;
+@media screen and (min-width: 440px) and (max-width: 479px) {
+  :root {
+    --phone-frame-gap: 1.65rem;
+    --phone-shell-padding: 1.3rem;
+    --phone-card-padding: 1.35rem;
+    --phone-menu-card-padding: 1.15rem;
+    --phone-nav-inline: 0.85rem;
+    --phone-menu-group-size: 1.5rem;
+    --phone-menu-group-spacing: 0.04em;
+    --phone-menu-item-size: 1.12rem;
+    --phone-menu-copy-size: 1.02rem;
+    --phone-section-title-size: 2.2rem;
+    --phone-subheading-size: 1.32rem;
+    --phone-footer-size: 0.94rem;
   }
 
-  .hoursList li {
-    grid-template-columns: 1fr;
-    align-items: start;
+  .hero-text:not(.home-hero-text) h1 {
+    font-size: clamp(2.95rem, 9.5vw, 4rem);
   }
+}
 
-  .hoursList strong {
-    justify-self: start;
-    text-align: left;
+@media screen and (min-width: 410px) and (max-width: 439px) {
+  :root {
+    --phone-frame-gap: 1.5rem;
+    --phone-shell-padding: 1.2rem;
+    --phone-card-padding: 1.28rem;
+    --phone-menu-card-padding: 1.05rem;
+    --phone-menu-group-size: 1.38rem;
+    --phone-menu-group-spacing: 0.035em;
+    --phone-menu-item-size: 1.06rem;
+    --phone-menu-copy-size: 1rem;
+    --phone-section-title-size: 2.05rem;
+    --phone-subheading-size: 1.24rem;
+    --phone-footer-size: 0.91rem;
   }
 
   .main-hero {
@@ -2761,38 +3007,110 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     padding-bottom: 2rem;
   }
 
+  .hero-badge {
+    padding: 0.9rem 0.95rem;
+  }
+
   .hero-kicker {
     font-size: 0.72rem;
     letter-spacing: 0.12em;
   }
+}
 
-  .i-block {
-    padding: 1.35rem;
+@media screen and (min-width: 390px) and (max-width: 409px) {
+  :root {
+    --phone-frame-gap: 1.35rem;
+    --phone-shell-padding: 1.12rem;
+    --phone-card-padding: 1.18rem;
+    --phone-menu-card-padding: 0.98rem;
+    --phone-nav-inline: 0.68rem;
+    --phone-menu-group-size: 1.28rem;
+    --phone-menu-group-line: 1.12;
+    --phone-menu-group-spacing: 0.03em;
+    --phone-menu-item-size: 1.02rem;
+    --phone-menu-copy-size: 0.98rem;
+    --phone-section-title-size: 1.96rem;
+    --phone-subheading-size: 1.18rem;
+    --phone-footer-size: 0.89rem;
   }
 
-  .daysAndHours {
-    gap: 0.7rem;
-  }
-
-  .daysAndHours p {
-    padding: 0.8rem 0.85rem;
-    font-size: 1rem;
+  .hoursList li {
+    grid-template-columns: 1fr;
+    align-items: start;
   }
 
   .hoursList strong {
-    font-size: 0.98rem;
+    justify-self: start;
+    text-align: left;
   }
 
-  .location iframe {
-    min-height: 15rem;
+  .main-hero {
+    min-height: 33rem;
+    background-position: 58% 27%;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 389px) {
+  :root {
+    --phone-frame-gap: 1.2rem;
+    --phone-shell-padding: 1rem;
+    --phone-card-padding: 1.08rem;
+    --phone-menu-card-padding: 0.92rem;
+    --phone-nav-inline: 0.62rem;
+    --phone-nav-link-size: 0.78rem;
+    --phone-nav-link-tracking: 0.1em;
+    --phone-hero-bottom: 2rem;
+    --phone-section-title-size: 1.88rem;
+    --phone-subheading-size: 1.12rem;
+    --phone-menu-group-size: 1.18rem;
+    --phone-menu-group-line: 1.11;
+    --phone-menu-group-spacing: 0.025em;
+    --phone-menu-item-size: 0.99rem;
+    --phone-menu-copy-size: 0.95rem;
+    --phone-footer-size: 0.87rem;
   }
 
-  .footer-text p {
-    font-size: 0.9rem;
+  .hoursList li {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .hoursList strong {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .main-hero {
+    min-height: 32rem;
+    background-position: 59% 27%;
   }
 }
 
 @media screen and (max-width: 360px) {
+  :root {
+    --phone-frame-gap: 1rem;
+    --phone-shell-padding: 0.95rem;
+    --phone-card-padding: 1rem;
+    --phone-menu-card-padding: 0.85rem;
+    --phone-nav-inline: 0.58rem;
+    --phone-nav-link-size: 0.76rem;
+    --phone-nav-link-tracking: 0.09em;
+    --phone-hero-bottom: 1.85rem;
+    --phone-section-title-size: 1.82rem;
+    --phone-subheading-size: 1.08rem;
+    --phone-menu-group-size: 1.1rem;
+    --phone-menu-group-line: 1.1;
+    --phone-menu-group-spacing: 0.02em;
+    --phone-menu-item-size: 0.97rem;
+    --phone-menu-copy-size: 0.93rem;
+    --phone-footer-size: 0.85rem;
+  }
+
+  .main-hero {
+    min-height: 31rem;
+    background-position: 60% 28%;
+  }
+
   .daysAndHours {
     grid-template-columns: 1fr;
   }
@@ -2809,6 +3127,20 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   .hoursList strong {
     justify-self: start;
     text-align: left;
+  }
+
+  .hero-kicker {
+    font-size: 0.68rem;
+    letter-spacing: 0.11em;
+  }
+
+  .daysAndHours p {
+    padding: 0.8rem 0.85rem;
+    font-size: 0.98rem;
+  }
+
+  .location iframe {
+    min-height: 14rem;
   }
 }
 
