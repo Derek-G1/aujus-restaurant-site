@@ -159,6 +159,32 @@ if (menuDisplayContainer && menuDisplayControl) {
   });
 }
 
+const hoursSummaryCard = document.getElementById("homeHoursSummaryCard");
+
+if (hoursSummaryCard) {
+  const hoursTargetId = hoursSummaryCard.dataset.scrollTarget;
+  const hoursTarget = hoursTargetId ? document.getElementById(hoursTargetId) : null;
+
+  const scrollToHoursSection = () => {
+    if (!hoursTarget) {
+      return;
+    }
+
+    hoursTarget.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  };
+
+  hoursSummaryCard.addEventListener("click", scrollToHoursSection);
+  hoursSummaryCard.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      scrollToHoursSection();
+    }
+  });
+}
+
 const contactSubmitBtn = document.getElementById("contactSubmitBtn");
 if (contactSubmitBtn != null) {
   contactSubmitBtn.addEventListener("click", validateForm);

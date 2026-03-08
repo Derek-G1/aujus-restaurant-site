@@ -1030,6 +1030,20 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
     0 0 9px rgba(216, 169, 74, 0.08);
 }
 
+#homeHoursSummaryCard {
+  text-align: center;
+}
+
+#homeHoursSummaryCard > span {
+  margin-bottom: 0.22rem;
+}
+
+#homeHoursSummaryCard .hero-badge-hours {
+  font-size: 0.94rem;
+  line-height: 1.24;
+  white-space: nowrap;
+}
+
 .featureStrip {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr));
@@ -2837,6 +2851,10 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
 
   .hero-badge {
     padding: 0.95rem 1rem;
+  }
+
+  .hero-badge:not(#homeHoursSummaryCard) {
+    min-height: 5.3rem;
   }
 
   .hero-badge strong {
