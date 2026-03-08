@@ -11,6 +11,37 @@
   --color-surface-muted: rgba(244, 233, 214, 0.9);
   --color-ink: #24130f;
   --color-ink-soft: rgba(36, 19, 15, 0.72);
+  --color-copy: rgba(36, 19, 15, 0.82);
+  --button-gold-gradient: linear-gradient(135deg, #ffe6a5 0%, #f4c76c 52%, #cf902f 100%);
+  --button-accent-gradient: linear-gradient(135deg, #f6ddb0 0%, var(--color-accent) 100%);
+  --button-cream-gradient: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(246, 234, 214, 0.96) 54%,
+    rgba(233, 208, 163, 0.92) 100%
+  );
+  --button-secondary-hover-gradient: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(246, 234, 214, 0.24) 48%,
+    rgba(216, 169, 74, 0.16) 76%,
+    rgba(125, 29, 47, 0.16) 100%
+  );
+  --button-red-gradient:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.18), transparent 34%),
+    linear-gradient(140deg, #b73a4f 0%, #98273b 20%, #7d1d2f 52%, #631425 78%, #430d19 100%);
+  --social-facebook-gradient:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.18), transparent 34%),
+    linear-gradient(140deg, #4d78dd 0%, #335fca 52%, #244aa6 100%);
+  --social-instagram-gradient:
+    radial-gradient(circle at 24% 16%, rgba(255, 255, 255, 0.18), transparent 34%),
+    linear-gradient(145deg, #f9ce34 0%, #ee2a7b 42%, #6228d7 100%);
+  --social-twitter-gradient:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.18), transparent 34%),
+    linear-gradient(140deg, #49b8f8 0%, #2293ea 52%, #1472c3 100%);
+  --social-tiktok-gradient:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.1), transparent 30%),
+    linear-gradient(140deg, #181818 0%, #121212 52%, #080808 100%);
   --border-soft: rgba(67, 13, 25, 0.14);
   --border-strong: rgba(179, 127, 31, 0.46);
   --gold-ring-soft: rgba(216, 169, 74, 0.22);
@@ -153,18 +184,111 @@ h3 {
   transform: translateY(-2px);
 }
 
+.btn-primary,
+.btn-accent,
+.btn-phone,
+.btn-phone-cu-page,
+.btn-email-cu-page {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: none;
+}
+
+.btn-primary::before,
+.btn-primary::after,
+.btn-accent::before,
+.btn-accent::after,
+.btn-phone::before,
+.btn-phone::after,
+.btn-phone-cu-page::before,
+.btn-phone-cu-page::after,
+.btn-email-cu-page::before,
+.btn-email-cu-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.btn-primary::before,
+.btn-accent::before,
+.btn-phone::before,
+.btn-phone-cu-page::before,
+.btn-email-cu-page::before {
+  z-index: -2;
+}
+
+.btn-primary::after,
+.btn-accent::after,
+.btn-phone::after,
+.btn-phone-cu-page::after,
+.btn-email-cu-page::after {
+  z-index: -1;
+  opacity: 0;
+  transform: scale(1.03);
+  background: var(--button-red-gradient);
+}
+
+.btn-primary::before {
+  background: var(--button-gold-gradient);
+}
+
 .btn-primary {
   color: var(--color-primary-deep);
-  background: linear-gradient(135deg, #ffe6a5 0%, #f4c76c 52%, #cf902f 100%);
+  border-color: rgba(179, 127, 31, 0.22);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.45),
     0 20px 40px rgba(216, 169, 74, 0.36);
 }
 
-.btn-primary:hover {
+.btn-primary:is(:hover, :focus-visible) {
+  color: var(--color-secondary);
+  border-color: rgba(246, 234, 214, 0.24);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 26px 46px rgba(67, 13, 25, 0.28);
+}
+
+.btn-primary:is(:hover, :focus-visible)::before,
+.btn-accent:is(:hover, :focus-visible)::before,
+.btn-phone:is(:hover, :focus-visible)::before,
+.btn-phone-cu-page:is(:hover, :focus-visible)::before,
+.btn-email-cu-page:is(:hover, :focus-visible)::before {
+  opacity: 0;
+  transform: scale(1.03);
+}
+
+.btn-primary:is(:hover, :focus-visible)::after,
+.btn-accent:is(:hover, :focus-visible)::after,
+.btn-phone:is(:hover, :focus-visible)::after,
+.btn-phone-cu-page:is(:hover, :focus-visible)::after,
+.btn-email-cu-page:is(:hover, :focus-visible)::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.order-cta:is(:hover, :focus-visible) {
+  color: var(--color-primary-deep);
+  border-color: rgba(179, 127, 31, 0.22);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.45),
     0 26px 46px rgba(216, 169, 74, 0.42);
+}
+
+.order-cta:is(:hover, :focus-visible)::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.order-cta:is(:hover, :focus-visible)::after {
+  opacity: 0;
+  transform: scale(1.03);
 }
 
 .nav-order-label {
@@ -174,16 +298,9 @@ h3 {
 
 .order-now-label {
   display: inline-block;
+  min-width: 8ch;
+  text-align: center;
   color: var(--color-primary-deep);
-}
-
-@keyframes orderTextCycle {
-  0% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 @keyframes orderNowTextPass {
@@ -221,28 +338,21 @@ h3 {
   .order-now-label {
     background-image: linear-gradient(
       90deg,
-      #430d19 0%,
-      #430d19 14%,
-      #7d1d2f 30%,
-      #b67d2a 44%,
-      #d8a94a 50%,
-      #f6ead6 56%,
-      #d8a94a 62%,
-      #b67d2a 72%,
-      #7d1d2f 86%,
-      #430d19 100%
+      #b67d2a 0%,
+      #d8a94a 18%,
+      #f6ead6 34%,
+      #7d1d2f 50%,
+      #f6ead6 64%,
+      #d8a94a 80%,
+      #b67d2a 100%
     );
-    background-size: 300% 100%;
-    animation: orderNowTextPass 5.6s linear infinite;
+    background-size: 260% 100%;
+    animation: orderNowTextPass 6.1s linear infinite;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
     text-shadow: 0 0 10px rgba(216, 169, 74, 0.08);
-  }
-
-  .hero-links .order-now-label {
-    animation-duration: 6.6s;
   }
 }
 
@@ -260,31 +370,55 @@ h3 {
   border-color: rgba(246, 234, 214, 0.84);
 }
 
+.hero-links .btn-secondary:is(:hover, :focus-visible) {
+  background: var(--button-secondary-hover-gradient);
+  border-color: rgba(246, 234, 214, 0.84);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    0 20px 38px rgba(12, 4, 7, 0.28);
+}
+
 .btn-accent {
   color: var(--color-primary-deep);
-  background: linear-gradient(135deg, #f6ddb0 0%, var(--color-accent) 100%);
+  border-color: rgba(179, 127, 31, 0.24);
   box-shadow: 0 16px 34px rgba(216, 169, 74, 0.28);
 }
 
-.btn-accent:hover {
-  box-shadow: 0 22px 40px rgba(216, 169, 74, 0.34);
+.btn-accent::before {
+  background: var(--button-accent-gradient);
+}
+
+.btn-accent:is(:hover, :focus-visible) {
+  color: var(--color-secondary);
+  border-color: rgba(246, 234, 214, 0.24);
+  box-shadow: 0 22px 40px rgba(67, 13, 25, 0.24);
 }
 
 .btn-phone,
 .btn-phone-cu-page,
 .btn-email-cu-page {
   color: var(--color-primary-deep);
-  background: rgba(125, 29, 47, 0.08);
-  border-color: rgba(125, 29, 47, 0.16);
-  box-shadow: none;
+  border-color: rgba(179, 127, 31, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    0 14px 28px rgba(23, 7, 11, 0.14),
+    0 0 0 1px rgba(216, 169, 74, 0.1);
 }
 
-.btn-phone:hover,
-.btn-phone-cu-page:hover,
-.btn-email-cu-page:hover {
-  background: var(--color-primary);
+.btn-phone::before,
+.btn-phone-cu-page::before,
+.btn-email-cu-page::before {
+  background: var(--button-cream-gradient);
+}
+
+.btn-phone:is(:hover, :focus-visible),
+.btn-phone-cu-page:is(:hover, :focus-visible),
+.btn-email-cu-page:is(:hover, :focus-visible) {
   color: var(--color-secondary);
-  border-color: transparent;
+  border-color: rgba(246, 234, 214, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 18px 34px rgba(23, 7, 11, 0.26);
 }
 
 .submitBtn {
@@ -349,6 +483,7 @@ h3 {
 .modal p {
   text-align: center;
   font-size: 1.05rem;
+  color: var(--color-copy);
 }
 
 /* ----------------------------------- NAV BAR ------------------------------- */
@@ -413,15 +548,22 @@ nav ul li a {
   text-decoration: none;
   text-transform: uppercase;
   transition:
-    background-color 180ms ease,
     color 180ms ease,
-    transform 180ms ease;
+    transform 180ms ease,
+    text-shadow 180ms ease;
 }
 
-nav ul li a:hover {
-  color: var(--color-primary-deep);
-  background: var(--color-secondary);
+nav ul li a:not(.nav-order-link):is(:hover, :focus-visible) {
+  color: #fff8eb;
+  background: transparent;
+  text-shadow: 0 0 14px rgba(216, 169, 74, 0.22);
   transform: translateY(-1px);
+}
+
+nav ul li a.nav-order-link:is(:hover, :focus-visible) {
+  color: var(--color-secondary);
+  background: transparent;
+  box-shadow: none;
 }
 
 #hamburgerMenu {
@@ -552,14 +694,7 @@ nav ul li a:hover {
   font-size: clamp(4.9rem, 12vw, 8.6rem);
   letter-spacing: 0.08em;
   color: #fff6e3;
-  text-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.5),
-    0 0 26px rgba(216, 169, 74, 0.14);
-}
-
-.home-hero-text #heroTitle {
-  color: #fff4de;
-  -webkit-text-stroke: 2px rgba(216, 169, 74, 0.9);
+  -webkit-text-stroke: clamp(1px, 0.08vw + 1px, 2px) rgba(216, 169, 74, 0.9);
   paint-order: stroke fill;
   text-shadow:
     0 20px 40px rgba(0, 0, 0, 0.5),
@@ -612,7 +747,7 @@ nav ul li a:hover {
 
 .hero-note {
   max-width: 34rem;
-  color: rgba(246, 234, 214, 0.78);
+  color: rgba(246, 234, 214, 0.84);
   font-size: 0.98rem;
   letter-spacing: 0.03em;
   line-height: 1.7;
@@ -818,7 +953,7 @@ nav ul li a:hover {
 
 .about p {
   padding: 0;
-  color: var(--color-ink-soft);
+  color: var(--color-copy);
   font-size: clamp(1.05rem, 1.45vw, 1.16rem);
   line-height: 1.8;
 }
@@ -894,7 +1029,7 @@ nav ul li a:hover {
 .promo-banner p {
   margin: 0;
   max-width: 32rem;
-  color: var(--color-ink-soft);
+  color: var(--color-copy);
   font-size: 1.04rem;
   line-height: 1.7;
 }
@@ -905,7 +1040,7 @@ nav ul li a:hover {
 }
 
 .location p {
-  color: var(--color-ink-soft);
+  color: var(--color-copy);
   font-size: 1.04rem;
 }
 
@@ -915,8 +1050,9 @@ nav ul li a:hover {
 }
 
 .info-callout {
-  padding: 1rem 1.05rem 1rem 1.15rem;
+  padding: 1rem 1.15rem;
   border-left: 4px solid rgba(216, 169, 74, 0.72);
+  border-right: 4px solid rgba(216, 169, 74, 0.72);
   border-radius: var(--radius-sm);
   background: linear-gradient(135deg, rgba(125, 29, 47, 0.08), rgba(255, 255, 255, 0.7));
   color: var(--color-primary-deep);
@@ -1032,6 +1168,11 @@ nav ul li a:hover {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.32),
     0 0 0 1px rgba(216, 169, 74, 0.12);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
 }
 
 .hoursList span {
@@ -1047,6 +1188,18 @@ nav ul li a:hover {
 
 .hoursList .is-closed strong {
   color: var(--color-ink-soft);
+}
+
+@media (hover: hover) {
+  .hoursList li:hover {
+    transform: translateY(-3px);
+    border-color: rgba(216, 169, 74, 0.38);
+    background: linear-gradient(180deg, rgba(125, 29, 47, 0.11), rgba(125, 29, 47, 0.05));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.38),
+      0 16px 30px rgba(23, 7, 11, 0.14),
+      0 0 0 1px rgba(216, 169, 74, 0.16);
+  }
 }
 
 .socialsContainer,
@@ -1083,7 +1236,7 @@ nav ul li a:hover {
   text-decoration: none;
   transition:
     transform 180ms ease,
-    background-color 180ms ease,
+    color 180ms ease,
     border-color 180ms ease,
     box-shadow 180ms ease;
 }
@@ -1093,10 +1246,12 @@ nav ul li a:hover {
   transform: translateY(-2px);
 }
 
-.socialsContainer a:hover {
-  background: rgba(246, 234, 214, 0.14);
-  border-color: rgba(246, 234, 214, 0.4);
-  box-shadow: 0 14px 28px rgba(7, 2, 4, 0.24);
+.socialsContainer a:is(:hover, :focus-visible),
+.socialsContainerContact a:is(:hover, :focus-visible) {
+  border-color: rgba(246, 234, 214, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 14px 28px rgba(67, 13, 25, 0.26);
 }
 
 .socialsContainerContact {
@@ -1119,11 +1274,53 @@ nav ul li a:hover {
   justify-content: center;
   width: 3rem;
   height: 3rem;
-  border: 1px solid rgba(125, 29, 47, 0.14);
+  border: 1px solid rgba(125, 29, 47, 0.28);
   border-radius: 50%;
-  background: rgba(125, 29, 47, 0.05);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(125, 29, 47, 0.06));
   color: var(--color-primary);
   text-decoration: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 10px 20px rgba(23, 7, 11, 0.12),
+    0 0 0 1px rgba(125, 29, 47, 0.08);
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.socialsContainerContact a:is(:hover, :focus-visible) {
+  color: var(--color-secondary);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 14px 28px rgba(67, 13, 25, 0.26),
+    0 0 0 1px rgba(246, 234, 214, 0.08);
+}
+
+.socialsContainer a[aria-label="Facebook"]:is(:hover, :focus-visible),
+.socialsContainerContact a[aria-label="Facebook"]:is(:hover, :focus-visible) {
+  background: var(--social-facebook-gradient);
+}
+
+.socialsContainer a[aria-label="Instagram"]:is(:hover, :focus-visible),
+.socialsContainerContact a[aria-label="Instagram"]:is(:hover, :focus-visible) {
+  background: var(--social-instagram-gradient);
+}
+
+.socialsContainer a[aria-label="Twitter"]:is(:hover, :focus-visible),
+.socialsContainerContact a[aria-label="Twitter"]:is(:hover, :focus-visible) {
+  background: var(--social-twitter-gradient);
+}
+
+.socialsContainer a[aria-label="TikTok"]:is(:hover, :focus-visible),
+.socialsContainerContact a[aria-label="TikTok"]:is(:hover, :focus-visible) {
+  background: var(--social-tiktok-gradient);
+  border-color: rgba(254, 44, 85, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 14px 28px rgba(8, 8, 8, 0.32),
+    0 0 0 1px rgba(37, 244, 238, 0.1);
 }
 
 .footer {
@@ -1241,7 +1438,7 @@ nav ul li a:hover {
 .menuSideItem p {
   width: 100%;
   margin-top: 0.55rem;
-  color: var(--color-ink-soft);
+  color: var(--color-copy);
 }
 
 .menuItemTitle {
@@ -1319,7 +1516,7 @@ nav ul li a:hover {
   width: 100%;
   text-align: center;
   line-height: 1.8;
-  color: var(--color-ink-soft);
+  color: var(--color-copy);
 }
 
 .tiktok-embed-wrapper {
@@ -1399,6 +1596,17 @@ nav ul li a:hover {
   box-shadow:
     inset 0 0 0 1px var(--gold-ring),
     0 0 0 4px var(--gold-ring-soft),
+    var(--shadow-lg);
+}
+
+.contactInquiryCard {
+  border-color: rgba(125, 29, 47, 0.14);
+  background:
+    radial-gradient(circle at top right, rgba(125, 29, 47, 0.08), transparent 24%),
+    linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-muted) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(125, 29, 47, 0.08),
+    0 0 0 4px rgba(125, 29, 47, 0.05),
     var(--shadow-lg);
 }
 
