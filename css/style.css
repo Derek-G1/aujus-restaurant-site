@@ -76,13 +76,19 @@
 
 @font-face {
   font-family: "Roboto";
-  src: url(../assets/Roboto/Roboto-Regular.ttf);
+  src:
+    local("Roboto"),
+    local("Roboto Regular"),
+    url(../assets/Roboto/Roboto-Regular.ttf) format("truetype");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Roboto";
-  src: url(../assets/Roboto/Roboto-Bold.ttf);
+  src:
+    local("Roboto Bold"),
+    local("Roboto"),
+    url(../assets/Roboto/Roboto-Bold.ttf) format("truetype");
   font-weight: 700;
   font-display: swap;
 }
