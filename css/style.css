@@ -851,7 +851,6 @@ nav ul li a.nav-order-link:is(:hover, :focus-visible) {
   inset: 0;
   background:
     radial-gradient(circle at 78% 20%, rgba(216, 169, 74, 0.18), transparent 24%),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 42px),
     linear-gradient(0deg, rgba(0, 0, 0, 0.28), transparent 36%);
   pointer-events: none;
 }
