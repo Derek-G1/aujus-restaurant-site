@@ -16,19 +16,9 @@ if (hamburgerMenu && responsiveLinks) {
     hamburgerMenu.setAttribute("aria-expanded", String(isOpen));
   };
 
-  hamburgerMenu.setAttribute("role", "button");
-  hamburgerMenu.setAttribute("tabindex", "0");
-  hamburgerMenu.setAttribute("aria-controls", "responsiveLinks");
   hamburgerMenu.setAttribute("aria-expanded", "false");
-  hamburgerMenu.setAttribute("aria-label", "Toggle navigation menu");
 
   hamburgerMenu.addEventListener("click", toggleMobileMenu);
-  hamburgerMenu.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      toggleMobileMenu();
-    }
-  });
 
   responsiveLinks.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
